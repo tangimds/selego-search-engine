@@ -11,7 +11,7 @@ import styled from "styled-components";
 import { setUser } from "../../redux/auth/actions";
 
 import api from "../../services/api";
-import LoadingButton from "../../components/loadingButton";
+import LoadingButton from "../../components/LoadingButton";
 
 export default () => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export default () => {
   return (
     <AuthWrapper>
       <Title>Signin</Title>
-      {user && <Redirect to="/" />}
+      {user && <Redirect to="/search" />}
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={async (values, actions) => {
@@ -73,9 +73,6 @@ export default () => {
                 </div>
                 <p style={{ fontSize: 12, color: "rgb(253, 49, 49)" }}>{errors.password}</p>
               </StyledFormGroup>
-              <div style={{ textAlign: "right", marginBottom: 20, marginTop: -20, fontSize: 12 }}>
-                <Link to="/auth/forgot">Forgot password ?</Link>
-              </div>
               <Submit loading={isSubmitting} type="submit" color="primary">
                 Signin
               </Submit>

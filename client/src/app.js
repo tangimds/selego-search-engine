@@ -1,3 +1,5 @@
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
@@ -6,10 +8,8 @@ import * as Sentry from "@sentry/browser";
 
 import { setUser } from "./redux/auth/actions";
 
-import Account from "./scenes/account";
 import Auth from "./scenes/auth";
-import User from "./scenes/user";
-import Drawer from "./components/drawer";
+import Search from "./scenes/search";
 
 import Header from "./components/header";
 
@@ -50,13 +50,12 @@ export default () => {
     <div style={{ display: "flex", height: "100%" }}>
       <Router>
         <div className="main">
-          {user && <Drawer />}
-          {user && <Header />}
           <div style={{ height: "100%" }}>
+            {user && <Header />}
             <Switch>
+              <Redirect exact from="/" to="/auth" />
               <Route path="/auth" component={Auth} />
-              <RestrictedRoute path="/account" component={Account} />
-              <RestrictedRoute path="/" component={User} />
+              <RestrictedRoute path="/search" component={Search} />
             </Switch>
           </div>
         </div>

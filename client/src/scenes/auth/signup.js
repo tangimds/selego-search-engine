@@ -11,7 +11,7 @@ import styled from "styled-components";
 import { setUser } from "../../redux/auth/actions";
 
 import api from "../../services/api";
-import LoadingButton from "../../components/loadingButton";
+import LoadingButton from "../../components/LoadingButton";
 
 export default () => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export default () => {
   return (
     <AuthWrapper>
       <Title>Signup</Title>
-      {user && <Redirect to="/" />}
+      {user && <Redirect to="/search" />}
       <Formik
         initialValues={{ name: "", email: "", password: "", repassword: "" }}
         onSubmit={async (values, actions) => {

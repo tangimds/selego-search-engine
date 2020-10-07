@@ -9,17 +9,10 @@ const Schema = new mongoose.Schema({
   name: { type: String },
 
   email: { type: String, required: true, unique: true, trim: true },
-  avatar: { type: String },
 
   password: String,
 
-  last_login_at: { type: Date, default: Date.now },
   created_at: { type: Date, default: Date.now },
-
-  forgot_password_reset_token: { type: String, default: "" },
-  forgot_password_reset_expires: { type: Date },
-
-  role: { type: String, enum: ["normal", "admin"], default: "normal" },
 });
 
 Schema.pre("save", function (next) {

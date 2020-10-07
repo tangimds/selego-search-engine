@@ -1,5 +1,5 @@
-const MONGO_URL = process.env.DB_ENDPOINT || "";
-const PORT = process.env.PORT || 3000;
+const MONGO_URL = process.env.DB_ENDPOINT || "mongodb+srv://tangimds:Showtime@cluster0.xpgyv.mongodb.net/lorem?retryWrites=true&w=majority";
+const PORT = process.env.PORT || 8080;
 const secret = process.env.SECRET || "not-so-secret";
 const APP_URL = process.env.DEV === "true" ? "http://localhost:8083" : "http://localhost:8083";
 

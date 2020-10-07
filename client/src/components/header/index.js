@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import User from "./user";
+import LoadingButton from "../LoadingButton";
 
 export default () => {
   return (
     <div style={{ height: 70 }}>
       <Header>
-        <User />
+        <LoadingButton color="secondary" href="/auth">
+          Log Out
+        </LoadingButton>
       </Header>
     </div>
   );
